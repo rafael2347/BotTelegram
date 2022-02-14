@@ -41,7 +41,7 @@ switch($message) {
     case '/ideal':
         getIdeal($chatId);
         break;
-    case '/tiempo':
+    case '/newyork':
         NewYork($chatId);
         break;
     default:
@@ -128,7 +128,7 @@ function getIdeal($chatId) {
 function NewYork($chatId) {
     include("simple_html_dom.php");
     $context=stream_context_create(array('http' => array('header' => "Accept: application/xml")));
-    $url="https://rss.nytimes.com/services/xml/rss/nyt/Europe.xmll";
+    $url="https://rss.nytimes.com/services/xml/rss/nyt/Europe.xml";
 
     $xmlstring= file_get_contents($url, false, $context);
 

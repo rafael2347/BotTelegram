@@ -42,7 +42,7 @@ switch($message) {
         getIdeal($chatId);
         break;
     case '/tiempo':
-        tiempo($chatId);
+        NewYork($chatId);
         break;
     default:
         $response = 'No te he entendido';
@@ -125,10 +125,10 @@ function getIdeal($chatId) {
 
 
 }
-function tiempo($chatId) {
+function NewYork($chatId) {
     include("simple_html_dom.php");
     $context=stream_context_create(array('http' => array('header' => "Accept: application/xml")));
-    $url="http://www.aemet.es/documentos_d/eltiempo/prediccion/avisos/rss/CAP_AFAC61_RSS.xml";
+    $url="https://rss.nytimes.com/services/xml/rss/nyt/Europe.xmll";
 
     $xmlstring= file_get_contents($url, false, $context);
 

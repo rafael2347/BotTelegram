@@ -42,7 +42,7 @@ switch($message) {
         getIdeal($chatId);
         break;
     case '/tiempo':
-        getIdeal($chatId);
+        tiempo($chatId);
         break;
     default:
         $response = 'No te he entendido';

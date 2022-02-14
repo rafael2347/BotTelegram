@@ -28,7 +28,8 @@ switch($message) {
         /info: Te dice quien es,
         /help: Te ayuda que comandos puedes poner en este bot
         /noticias: Te enseña las noticias de Europa Press
-        /elmundo: Te enseña las noticias de El Mundo';
+        /elmundo: Te enseña las noticias de El Mundo
+        /ideal: Te enseña las noticias del Ideal';
         sendMessage($chatId, $response);
         break;
     case '/noticias':
@@ -36,6 +37,9 @@ switch($message) {
         break;
     case '/elmundo':
         getNews($chatId);
+        break;
+    case '/ideal':
+        getIdeal($chatId);
         break;
     default:
         $response = 'No te he entendido';
@@ -95,5 +99,28 @@ function getNews($chatId) {
 
 }
 
+
+
+function getIdeal($chatId) {
+    include("simple_html_dom.php");
+    $context=stream_context_create(array('http' => array('header' => "Accept: application/xml")));
+    $url="https://www.ideal.es/rss/2.0/portada";
+
+    $xmlstring= file_get_contents($url, false, $context);
+
+    $xml = simplexml_load_string($xmlstring, "SimpleXMLElement", LIBXML_NOCDATA);
+    $json =json_encode($xml);
+    $array = json_decode($json, TRUE);
+
+    for($i=0; $i<9; $i++){
+        $titulos = $titulos. "\n\n".$array['channel']['item'][$i]['title']."<a href='".$array['channel']['item'][$i]['link']."'>
+        +info</a>";
+        
+    }
+
+    sendMessage($chatId, $titulos);
+
+
+}
 
 ?>

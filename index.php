@@ -30,7 +30,7 @@ switch($message) {
         sendMessage($chatId, $response);
         break;
     case '/noticias':
-        sendMessage($chatId);
+        getNoticias($chatId);
         break;
     default:
         $response = 'No te he entendido';
@@ -43,7 +43,7 @@ function sendMessage($chatId, $response) {
     file_get_contents($url);
 }
 
-function Noticias($chatId, $response) {
+function getNoticias($chatId) {
     include("simple_html_dom.php");
     $context=stream_context_create(array('http' => array('header' => "Accept: application/xml")));
     $url="https://www.europapress.es/rss/rss.aspx";

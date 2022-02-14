@@ -17,6 +17,10 @@ switch($message) {
         $response = 'Hola! Soy @NoticiasUltimaHoraa_bot';
         sendMessage($chatId, $response);
         break;
+    case '/hola':
+        $response = 'Hola! Hoy va a ser tu mejor día';
+        sendMessage($chatId, $response);
+        break;
     default:
         $response = 'No te he entendido';
         sendMessage($chatId, $response);

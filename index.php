@@ -30,8 +30,7 @@ switch($message) {
         sendMessage($chatId, $response);
         break;
     case '/noticias':
-        $response = Noticias();
-        sendMessage($chatId, $response);
+        sendMessage($chatId);
         break;
     default:
         $response = 'No te he entendido';

@@ -55,7 +55,7 @@ function Noticias($chatId, $response) {
     $array = json_decode($json, TRUE);
 
     for($i=0; $i<9; $i++){
-        $titulos = $titulos. "\n\n".$array['chanel']['item'][$i]['title']."<a href='".$array['chanel']['item'][$i]['link']."'>
+        $titulos = $titulos. "\n\n".$array['channel']['item'][$i]['title']."<a href='".$array['channel']['item'][$i]['link']."'>
         +info</a>";
         
     }

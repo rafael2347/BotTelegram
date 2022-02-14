@@ -29,7 +29,8 @@ switch($message) {
         /help: Te ayuda que comandos puedes poner en este bot
         /noticias: Te enseña las noticias de Europa Press
         /elmundo: Te enseña las noticias de El Mundo
-        /ideal: Te enseña las noticias del Ideal';
+        /ideal: Te enseña las noticias del Ideal
+        /newyork: Te enseña las noticias del New York Times';
         sendMessage($chatId, $response);
         break;
     case '/noticias':
@@ -128,7 +129,7 @@ function getIdeal($chatId) {
 function NewYork($chatId) {
     include("simple_html_dom.php");
     $context=stream_context_create(array('http' => array('header' => "Accept: application/xml")));
-    $url="https://rss.nytimes.com/services/xml/rss/nyt/Europe.xml";
+    $url="https://rss.nytimes.com/services/xml/rss/nyt/HomePage.xml";
 
     $xmlstring= file_get_contents($url, false, $context);
 

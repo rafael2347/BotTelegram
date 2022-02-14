@@ -26,7 +26,9 @@ switch($message) {
         $response = '/start: Inicia el bot,
         /hola: Te anima el día,
         /info: Te dice quien es,
-        /help: Te ayuda que comandos puedes poner en este bot';
+        /help: Te ayuda que comandos puedes poner en este bot
+        /noticias: Te enseña las noticias de Europa Press
+        /elmundo: Te enseña las noticias de El Mundo';
         sendMessage($chatId, $response);
         break;
     case '/noticias':

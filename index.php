@@ -21,6 +21,12 @@ switch($message) {
         $response = 'Hola! Hoy va a ser tu mejor día';
         sendMessage($chatId, $response);
         break;
+    case '/help':
+        $response = '/start: Inicia el bot';
+        $response = '/hola: Te anima el día';
+        $response = '/info: Te dice quien es';
+        sendMessage($chatId, $response);
+        break;
     default:
         $response = 'No te he entendido';
         sendMessage($chatId, $response);

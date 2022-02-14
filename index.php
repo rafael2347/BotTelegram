@@ -5,6 +5,7 @@ $website = 'https://api.telegram.org/bot'.$token;
 $input = file_get_contents('php://input');
 $update = json_decode($input, TRUE);
 
+
 $chatId = $update['message']['chat']['id'];
 $message = $update['message']['text'];
 
@@ -29,8 +30,8 @@ switch($message) {
         sendMessage($chatId, $response);
         break;
     case '/noticias':
-       
-        sendMessage($chatId);
+        $response = Noticias();
+        sendMessage($chatId, $response);
         break;
     default:
         $response = 'No te he entendido';

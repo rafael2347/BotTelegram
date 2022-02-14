@@ -29,9 +29,9 @@ switch($message) {
         /help: Te ayuda que comandos puedes poner en este bot';
         sendMessage($chatId, $response);
         break;
-    case '/noticias':
-        sendMessage($chatId);
-        break;
+    // case '/noticias':
+    //     sendMessage($chatId);
+    //     break;
     default:
         $response = 'No te he entendido';
         sendMessage($chatId, $response);
@@ -43,27 +43,27 @@ function sendMessage($chatId, $response) {
     file_get_contents($url);
 }
 
-function Noticias($chatId, $response) {
-    include("simple_html_dom.php");
-    $context=stream_context_create(array('http' => array('header' => "Accept: application/xml")));
-    $url="http://www.europapress.es/rss/rss.aspx";
+// function Noticias($chatId, $response) {
+//     include("simple_html_dom.php");
+//     $context=stream_context_create(array('http' => array('header' => "Accept: application/xml")));
+//     $url="http://www.europapress.es/rss/rss.aspx";
 
-    $xmlstring= file_get_contents($url, false, $context);
+//     $xmlstring= file_get_contents($url, false, $context);
 
-    $xml = simplexml_load_string($xmlstring, "SimpleXMLElement", LIBXML_NOCDATA);
-    $json =json_encode($xml);
-    $array = json_decode($json, TRUE);
+//     $xml = simplexml_load_string($xmlstring, "SimpleXMLElement", LIBXML_NOCDATA);
+//     $json =json_encode($xml);
+//     $array = json_decode($json, TRUE);
 
-    for($i=0; $i<9; $i++){
-        $titulos = $titulos. "\n\n".$array['chanel']['item'][$i]['title']."<a href='".$array['chanel']['item'][$i]['link']."'>
-        +info</a>";
+//     for($i=0; $i<9; $i++){
+//         $titulos = $titulos. "\n\n".$array['chanel']['item'][$i]['title']."<a href='".$array['chanel']['item'][$i]['link']."'>
+//         +info</a>";
         
-    }
+//     }
 
-    sendMessage($chatId, $titulos);
+//     sendMessage($chatId, $titulos);
 
 
 
-}
+// }
 
 ?>

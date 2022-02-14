@@ -69,7 +69,7 @@ function getNoticias($chatId) {
 
     for($i=0; $i<9; $i++){
         $titulos = $titulos. "\n\n".$array['channel']['item'][$i]['title']."<a href='".$array['channel']['item'][$i]['link']."'>
-        +info</a>";
+        +Pincha aquí para más información</a>";
         
     }
 
@@ -94,7 +94,7 @@ function getNews($chatId) {
 
     for($i=0; $i<9; $i++){
         $titulos = $titulos. "\n\n".$array['channel']['item'][$i]['title']."<a href='".$array['channel']['item'][$i]['link']."'>
-        +info</a>";
+        +Pincha aquí para más información</a>";
         
     }
 
@@ -118,7 +118,7 @@ function getIdeal($chatId) {
 
     for($i=0; $i<9; $i++){
         $titulos = $titulos. "\n\n".$array['channel']['item'][$i]['title']."<a href='".$array['channel']['item'][$i]['link']."'>
-        +info</a>";
+        +Pincha aquí para más información</a>";
         
     }
 
@@ -139,7 +139,7 @@ function NewYork($chatId) {
 
     for($i=0; $i<9; $i++){
         $titulos = $titulos. "\n\n".$array['channel']['item'][$i]['title']."<a href='".$array['channel']['item'][$i]['link']."'>
-        +info</a>";
+        +Pincha aquí para más información</a>";
         
     }
 

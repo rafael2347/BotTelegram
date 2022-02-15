@@ -15,7 +15,7 @@ switch($message) {
         sendMessage($chatId, $response);
         break;
     case '/info':
-        $response = 'Hola! Soy @NoticiasUltimaHoraa_bot';
+        $response = 'Hola! Soy @NoticiasUltimaHoraa_bot mi creador es Rafael González';
         sendMessage($chatId, $response);
         break;
     case '/hola':

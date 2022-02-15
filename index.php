@@ -52,7 +52,7 @@ switch($message) {
         break;
 }
 
-function sendMessage($chatId, $response, $repl) {
+function sendMessage($chatId, $response/*, $repl*/) {
     // if ($repl == TRUE){
     //     $replay_mark = array ('force_reply' => True);
     //     $url = $GLOBALS[website].'/sendMessage?chat_id='.$chatId.'&parse_mode=HTML&reply_markup='.json_encode($replay_mark).'&text='.urlencode($response);

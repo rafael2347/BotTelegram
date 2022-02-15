@@ -8,7 +8,7 @@ $update = json_decode($input, TRUE);
 $chatType = $update["message"]["chat"]["id"];
 $chatId = $update['message']['chat']['id'];
 $message = $update['message']['text'];
-$repl = $update['message']['reply_to_message']['text'];
+// $repl = $update['message']['reply_to_message']['text'];
 
 switch($message) {
     case '/start':
@@ -53,14 +53,14 @@ switch($message) {
 }
 
 function sendMessage($chatId, $response, $repl) {
-    if ($repl == TRUE){
-        $replay_mark = array ('force_reply' => True);
-        $url = $GLOBALS[website].'/sendMessage?chat_id='.$chatId.'&parse_mode=HTML&reply_markup='.json_encode($replay_mark).'&text='.urlencode($response);
-    }else{
+    // if ($repl == TRUE){
+    //     $replay_mark = array ('force_reply' => True);
+    //     $url = $GLOBALS[website].'/sendMessage?chat_id='.$chatId.'&parse_mode=HTML&reply_markup='.json_encode($replay_mark).'&text='.urlencode($response);
+    // }else{
 
         $url = $GLOBALS['website'].'/sendMessage?chat_id='.$chatId.'&parse_mode=HTML&text='.urlencode($response);
         file_get_contents($url);
-    }
+    //}
 }
 
 function getNoticias($chatId) {

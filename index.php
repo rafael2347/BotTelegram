@@ -28,10 +28,7 @@ switch($message) {
         /hola: Te anima el día,
         /info: Te dice quien es,
         /help: Te ayuda que comandos puedes poner en este bot
-        /Noticias: Te enseña las noticias de Europa Press
-        /elmundo: Te enseña las noticias de El Mundo
-        /ideal: Te enseña las noticias del Ideal
-        /newyork: Te enseña las noticias del New York Times';
+        /Noticias: Te enseña todos los periodicos en los que puedes consultar las noticias';
         sendMessage($chatId, $response);
         break;
     case '/Noticias':

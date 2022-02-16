@@ -47,7 +47,8 @@ switch($message) {
         El Marca: /marca
         El AS de Formula 1: /As_formula1
         El AS de Motos: /As_motos
-        El periodico Sport: /sport';
+        El periodico Sport: /sport
+        El periodico Sport de Golf: /sportgolf';
 
 
         sendMessage($chatId, $response);
@@ -78,6 +79,9 @@ switch($message) {
         break;
     case '/sport':
         Sport($chatId);
+        break;
+    case '/sportgolf':
+        Sportgolf($chatId);
         break;
     default:
         $response = 'No te he entendido';
@@ -281,6 +285,29 @@ function Sport ($chatId) {
     $context=stream_context_create(array('http' => array('header' => "Accept: application/xml")));
    
     $url="https://www.sport.es/es/rss/last-news/news.xml";
+
+    $xmlstring= file_get_contents($url, false, $context);
+
+    $xml = simplexml_load_string($xmlstring, "SimpleXMLElement", LIBXML_NOCDATA);
+    $json =json_encode($xml);
+    $array = json_decode($json, TRUE);
+
+    for($i=0; $i<9; $i++){
+        $titulos = $titulos. "\n\n".$array['channel']['item'][$i]['title']."<a href='".$array['channel']['item'][$i]['link']."'>
+        +Pincha aquí para más información</a>";
+        
+    }
+
+    sendMessage($chatId, $titulos);
+
+
+}
+
+function Sportgolf ($chatId) {
+    include("simple_html_dom.php");
+    $context=stream_context_create(array('http' => array('header' => "Accept: application/xml")));
+   
+    $url="https://www.sport.es/es/rss/golf/rss.xml";
 
     $xmlstring= file_get_contents($url, false, $context);
 

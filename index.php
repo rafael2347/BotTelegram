@@ -112,7 +112,8 @@ function getNoticias($chatId) {
     $array = json_decode($json, TRUE);
 
     for($i=0; $i<9; $i++){
-        $titulos = $titulos. "\n\n".$array['channel']['item'][$i]['title']."<a href='".$array['channel']['item'][$i]['link']."'>+Pincha aquí para más información</a>";
+        $titulos = $titulos. "\n\n".$array['channel']['item'][$i]['title']."<a href='".$array['channel']['item'][$i]['link']."'>
+Pincha aquí para más información</a>";
         
     }
 
@@ -137,7 +138,7 @@ function getNews($chatId) {
 
     for($i=0; $i<9; $i++){
         $titulos = $titulos. "\n\n".$array['channel']['item'][$i]['title']."<a href='".$array['channel']['item'][$i]['link']."'>
-        +Pincha aquí para más información</a>";
+Pincha aquí para más información</a>";
         
     }
 
@@ -161,7 +162,7 @@ function getIdeal($chatId) {
 
     for($i=0; $i<9; $i++){
         $titulos = $titulos. "\n\n".$array['channel']['item'][$i]['title']."<a href='".$array['channel']['item'][$i]['link']."'>
-+Pincha aquí para más información</a>";
+ Pincha aquí para más información</a>";
         
     }
 
@@ -182,7 +183,7 @@ function NewYork($chatId) {
 
     for($i=0; $i<9; $i++){
         $titulos = $titulos. "\n\n".$array['channel']['item'][$i]['title']."<a href='".$array['channel']['item'][$i]['link']."'>
-+Pincha aquí para más información</a>";
+ Pincha aquí para más información</a>";
         
     }
 
@@ -204,7 +205,7 @@ function ElMarca($chatId) {
 
     for($i=0; $i<9; $i++){
         $titulos = $titulos. "\n\n".$array['channel']['item'][$i]['title']."<a href='".$array['channel']['item'][$i]['link']."'>
-+Pincha aquí para más información</a>";
+ Pincha aquí para más información</a>";
         
     }
 
@@ -228,7 +229,7 @@ function vanguardia($chatId) {
 
     for($i=0; $i<9; $i++){
         $titulos = $titulos. "\n\n".$array['channel']['item'][$i]['title']."<a href='".$array['channel']['item'][$i]['link']."'>
-+Pincha aquí para más información</a>";
+ Pincha aquí para más información</a>";
         
     }
 
@@ -250,7 +251,7 @@ function ASformula1 ($chatId) {
 
     for($i=0; $i<9; $i++){
         $titulos = $titulos. "\n\n".$array['channel']['item'][$i]['title']."<a href='".$array['channel']['item'][$i]['link']."'>
-+Pincha aquí para más información</a>";
+ Pincha aquí para más información</a>";
         
     }
 
@@ -272,7 +273,7 @@ function ASmotos ($chatId) {
 
     for($i=0; $i<9; $i++){
         $titulos = $titulos. "\n\n".$array['channel']['item'][$i]['title']."<a href='".$array['channel']['item'][$i]['link']."'>
-+Pincha aquí para más información</a>";
+ Pincha aquí para más información</a>";
         
     }
 
@@ -294,7 +295,7 @@ function Sport ($chatId) {
 
     for($i=0; $i<9; $i++){
         $titulos = $titulos. "\n\n".$array['channel']['item'][$i]['title']."<a href='".$array['channel']['item'][$i]['link']."'>
-+Pincha aquí para más información</a>";
+ Pincha aquí para más información</a>";
         
     }
 

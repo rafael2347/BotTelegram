@@ -20,7 +20,7 @@ switch($message) {
         sendMessage($chatId, $response);
         break;
     case '/hola':
-        $response = 'Hola!  ser tu mejor día';
+        $response = 'Hola! Hoy va a ser tu mejor día';
         sendMessage($chatId, $response);
         break;
     case '/help':
@@ -46,7 +46,8 @@ switch($message) {
         $response='Has puesto el comando de Deportes, porfavor pulsa para ver los deportes de ese periodico:
         El Marca: /marca
         El AS de Formula 1: /As_formula1
-        El AS de Motos: /As_motos';
+        El AS de Motos: /As_motos
+        El periodico Sport: /sport';
 
 
         sendMessage($chatId, $response);
@@ -74,6 +75,9 @@ switch($message) {
         break;
     case '/As_motos':
         ASmotos($chatId);
+        break;
+    case '/sport':
+        Sport($chatId);
         break;
     default:
         $response = 'No te he entendido';
@@ -255,6 +259,28 @@ function ASmotos ($chatId) {
     $context=stream_context_create(array('http' => array('header' => "Accept: application/xml")));
    
     $url="https://as.com/rss/motor/motociclismo.xml";
+
+    $xmlstring= file_get_contents($url, false, $context);
+
+    $xml = simplexml_load_string($xmlstring, "SimpleXMLElement", LIBXML_NOCDATA);
+    $json =json_encode($xml);
+    $array = json_decode($json, TRUE);
+
+    for($i=0; $i<9; $i++){
+        $titulos = $titulos. "\n\n".$array['channel']['item'][$i]['title']."<a href='".$array['channel']['item'][$i]['link']."'>
+        +Pincha aquí para más información</a>";
+        
+    }
+
+    sendMessage($chatId, $titulos);
+
+
+}
+function Sport ($chatId) {
+    include("simple_html_dom.php");
+    $context=stream_context_create(array('http' => array('header' => "Accept: application/xml")));
+   
+    $url="https://www.sport.es/es/rss/last-news/news.xml";
 
     $xmlstring= file_get_contents($url, false, $context);
 

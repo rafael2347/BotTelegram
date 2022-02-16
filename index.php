@@ -69,7 +69,10 @@ switch($message) {
         vanguardia($chatId);
         break;
     case '/As':
-        deportes_as($chatId);
+        ASformula1($chatId);
+        break;
+    case '/As':
+        ASmotos($chatId);
         break;
     default:
         $response = 'No te he entendido';
@@ -224,7 +227,7 @@ function vanguardia($chatId) {
 
 
 }
-function deportes_as(){
+
 function ASformula1 ($chatId) {
     include("simple_html_dom.php");
     $context=stream_context_create(array('http' => array('header' => "Accept: application/xml")));

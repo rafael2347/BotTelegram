@@ -28,14 +28,20 @@ switch($message) {
         /hola: Te anima el día,
         /info: Te dice quien es,
         /help: Te ayuda que comandos puedes poner en este bot
-        /noticias: Te enseña las noticias de Europa Press
+        /Noticias: Te enseña las noticias de Europa Press
         /elmundo: Te enseña las noticias de El Mundo
         /ideal: Te enseña las noticias del Ideal
         /newyork: Te enseña las noticias del New York Times';
         sendMessage($chatId, $response);
         break;
-    case '/noticias':
-        getNoticias($chatId);
+    case '/Noticias':
+        $response = 'Hola! has pulsado el comando de noticias, porfavor pulsa para ver la noticias de ese periodico,
+        \n Ideal: /ideal
+        \n El mundo: /elmundo
+        \n New York Times: /newyork
+        \n EuropaExpress: /europapress
+        \n ';
+        sendMessage($chatId, $response);
         break;
     case '/elmundo':
         getNews($chatId);
@@ -44,7 +50,10 @@ switch($message) {
         getIdeal($chatId);
         break;
     case '/newyork':
-        NewYork($chatId);
+        getIdeal($chatId);
+        break;
+    case '/europapress':
+        getNoticias($chatId);
         break;
     default:
         $response = 'No te he entendido';
@@ -154,4 +163,6 @@ function NewYork($chatId) {
 
 
 }
+
+
 ?>

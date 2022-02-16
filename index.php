@@ -28,16 +28,25 @@ switch($message) {
         /hola: Te anima el día,
         /info: Te dice quien es,
         /help: Te ayuda que comandos puedes poner en este bot
-        /Noticias: Te enseña todos los periodicos en los que puedes consultar las noticias';
+        /Noticias: Te enseña todos los periodicos en los que puedes consultar las noticias
+        /Deportes: Accedes a las noticias dedicadas sobre deportes';
         sendMessage($chatId, $response);
         break;
     case '/Noticias':
-        $response = 'Hola! has pulsado el comando de noticias, porfavor pulsa para ver la noticias de ese periodico,
+        $response = 'Hola! has pulsado el comando de noticias, porfavor pulsa para ver la noticias de ese periodico:
          Ideal: /ideal
          El mundo: /elmundo
          New York Times: /newyork
          EuropaExpress: /europapress
+         La Vanguardia: /vanguardia
          ';
+        sendMessage($chatId, $response);
+        break;
+    case '/Deportes':
+        $response='Has puesto el comando de Deportes, porfavor pulsa para ver los deportes de ese periodico:
+        El Marca: /marca';
+
+
         sendMessage($chatId, $response);
         break;
     case '/elmundo':
@@ -49,8 +58,14 @@ switch($message) {
     case '/newyork':
         getIdeal($chatId);
         break;
+    case '/marca':
+        ElMarca($chatId);
+        break;
     case '/europapress':
         getNoticias($chatId);
+        break;
+    case '/vanguardia':
+        vanguardia($chatId);
         break;
     default:
         $response = 'No te he entendido';
@@ -143,6 +158,51 @@ function NewYork($chatId) {
     include("simple_html_dom.php");
     $context=stream_context_create(array('http' => array('header' => "Accept: application/xml")));
     $url="https://rss.nytimes.com/services/xml/rss/nyt/HomePage.xml";
+
+    $xmlstring= file_get_contents($url, false, $context);
+
+    $xml = simplexml_load_string($xmlstring, "SimpleXMLElement", LIBXML_NOCDATA);
+    $json =json_encode($xml);
+    $array = json_decode($json, TRUE);
+
+    for($i=0; $i<9; $i++){
+        $titulos = $titulos. "\n\n".$array['channel']['item'][$i]['title']."<a href='".$array['channel']['item'][$i]['link']."'>
+        +Pincha aquí para más información</a>";
+        
+    }
+
+    sendMessage($chatId, $titulos);
+
+
+}
+
+function ElMarca($chatId) {
+    include("simple_html_dom.php");
+    $context=stream_context_create(array('http' => array('header' => "Accept: application/xml")));
+    $url="https://e00-marca.uecdn.es/rss/futbol/granada.xml";
+
+    $xmlstring= file_get_contents($url, false, $context);
+
+    $xml = simplexml_load_string($xmlstring, "SimpleXMLElement", LIBXML_NOCDATA);
+    $json =json_encode($xml);
+    $array = json_decode($json, TRUE);
+
+    for($i=0; $i<9; $i++){
+        $titulos = $titulos. "\n\n".$array['channel']['item'][$i]['title']."<a href='".$array['channel']['item'][$i]['link']."'>
+        +Pincha aquí para más información</a>";
+        
+    }
+
+    sendMessage($chatId, $titulos);
+
+
+}
+
+
+function vanguardia($chatId) {
+    include("simple_html_dom.php");
+    $context=stream_context_create(array('http' => array('header' => "Accept: application/xml")));
+    $url="https://www.lavanguardia.com/rss/home.xml";
 
     $xmlstring= file_get_contents($url, false, $context);
 

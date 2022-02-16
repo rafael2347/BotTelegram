@@ -161,7 +161,7 @@ function getIdeal($chatId) {
 
     for($i=0; $i<9; $i++){
         $titulos = $titulos. "\n\n".$array['channel']['item'][$i]['title']."<a href='".$array['channel']['item'][$i]['link']."'>
-+Pincha aquí para más información</a>";
+    +Pincha aquí para más información</a>";
         
     }
 

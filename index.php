@@ -224,7 +224,7 @@ function vanguardia($chatId) {
 
 
 }
-function deportes_as($chatId){
+function deportes_as(){
 function ASformula1 ($chatId) {
     include("simple_html_dom.php");
     $context=stream_context_create(array('http' => array('header' => "Accept: application/xml")));

@@ -45,7 +45,8 @@ switch($message) {
     case '/Deportes':
         $response='Has puesto el comando de Deportes, porfavor pulsa para ver los deportes de ese periodico:
         El Marca: /marca
-        El AS: /As';
+        El AS: /As-formula1
+        El AS: /As-motos';
 
 
         sendMessage($chatId, $response);
@@ -68,10 +69,10 @@ switch($message) {
     case '/vanguardia':
         vanguardia($chatId);
         break;
-    case '/As':
+    case '/As-formula1':
         ASformula1($chatId);
         break;
-    case '/As':
+    case '/As-motos':
         ASmotos($chatId);
         break;
     default:
@@ -232,7 +233,6 @@ function ASformula1 ($chatId) {
     include("simple_html_dom.php");
     $context=stream_context_create(array('http' => array('header' => "Accept: application/xml")));
     $url="https://as.com/rss/motor/formula_1.xml";
-    $url="https://as.com/rss/motor/motociclismo.xml";
 
     $xmlstring= file_get_contents($url, false, $context);
 
@@ -253,7 +253,7 @@ function ASformula1 ($chatId) {
 function ASmotos ($chatId) {
     include("simple_html_dom.php");
     $context=stream_context_create(array('http' => array('header' => "Accept: application/xml")));
-    $url="https://as.com/rss/motor/formula_1.xml";
+   
     $url="https://as.com/rss/motor/motociclismo.xml";
 
     $xmlstring= file_get_contents($url, false, $context);
@@ -272,6 +272,6 @@ function ASmotos ($chatId) {
 
 
 }
-}
+
 
 ?>

@@ -45,8 +45,8 @@ switch($message) {
     case '/Deportes':
         $response='Has puesto el comando de Deportes, porfavor pulsa para ver los deportes de ese periodico:
         El Marca: /marca
-        El AS: /As_formula1
-        El AS: /As_motos';
+        El AS de Formula 1: /As_formula1
+        El AS de Motos: /As_motos';
 
 
         sendMessage($chatId, $response);
@@ -58,7 +58,7 @@ switch($message) {
         getIdeal($chatId);
         break;
     case '/newyork':
-        getIdeal($chatId);
+        NewYork($chatId);
         break;
     case '/marca':
         ElMarca($chatId);

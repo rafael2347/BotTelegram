@@ -100,8 +100,7 @@ function getNoticias($chatId) {
     $array = json_decode($json, TRUE);
 
     for($i=0; $i<9; $i++){
-        $titulos = $titulos. "\n\n".$array['channel']['item'][$i]['title']."<a href='".$array['channel']['item'][$i]['link']."'>
-        +Pincha aquí para más información</a>";
+        $titulos = $titulos. "\n\n".$array['channel']['item'][$i]['title']."<a href='".$array['channel']['item'][$i]['link']."'>+Pincha aquí para más información</a>";
         
     }
 
@@ -229,6 +228,7 @@ function ASformula1 ($chatId) {
     include("simple_html_dom.php");
     $context=stream_context_create(array('http' => array('header' => "Accept: application/xml")));
     $url="https://as.com/rss/motor/formula_1.xml";
+    $url="https://as.com/rss/motor/motociclismo.xml";
 
     $xmlstring= file_get_contents($url, false, $context);
 

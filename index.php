@@ -44,7 +44,8 @@ switch($message) {
         break;
     case '/Deportes':
         $response='Has puesto el comando de Deportes, porfavor pulsa para ver los deportes de ese periodico:
-        El Marca: /marca';
+        El Marca: /marca
+        El AS: /As';
 
 
         sendMessage($chatId, $response);
@@ -66,6 +67,9 @@ switch($message) {
         break;
     case '/vanguardia':
         vanguardia($chatId);
+        break;
+    case '/As':
+        ASformula1($chatId);
         break;
     default:
         $response = 'No te he entendido';
@@ -199,6 +203,7 @@ function ElMarca($chatId) {
 }
 
 
+
 function vanguardia($chatId) {
     include("simple_html_dom.php");
     $context=stream_context_create(array('http' => array('header' => "Accept: application/xml")));
@@ -220,6 +225,26 @@ function vanguardia($chatId) {
 
 
 }
+function ASformula1 ($chatId) {
+    include("simple_html_dom.php");
+    $context=stream_context_create(array('http' => array('header' => "Accept: application/xml")));
+    $url="https://as.com/rss/motor/formula_1.xml";
 
+    $xmlstring= file_get_contents($url, false, $context);
+
+    $xml = simplexml_load_string($xmlstring, "SimpleXMLElement", LIBXML_NOCDATA);
+    $json =json_encode($xml);
+    $array = json_decode($json, TRUE);
+
+    for($i=0; $i<9; $i++){
+        $titulos = $titulos. "\n\n".$array['channel']['item'][$i]['title']."<a href='".$array['channel']['item'][$i]['link']."'>
+        +Pincha aquí para más información</a>";
+        
+    }
+
+    sendMessage($chatId, $titulos);
+
+
+}
 
 ?>

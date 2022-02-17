@@ -8,7 +8,7 @@ $update = json_decode($input, TRUE);
 $chatType = $update["message"]["chat"]["id"];
 $chatId = $update['message']['chat']['id'];
 $message = $update['message']['text'];
-$emoticono=" 📰 ";
+$periodicoemo=" 📰 ";
 $emoticono_deportes=' 🏅 ';
 $golf=' ⛳ ';
 $moto=' 🏍️ ';
@@ -35,19 +35,19 @@ switch($message) {
         /hola: Te anima el día,
         /info: Te dice quien es,
         /help: Te ayuda que comandos puedes poner en este bot
-        /noticias: Te enseña todos los periodicos en los que puedes consultar las noticias
-        /deportes: Accedes a las noticias dedicadas sobre deportes
-        /tecnologia: Accedes a nuestra parte de tecnología';
+        /noticias '.$periodicoemo.': Te enseña todos los periodicos en los que puedes consultar las noticias
+        /deportes '.$emoticono_deportes.': Accedes a las noticias dedicadas sobre deportes
+        /tecnologia '.$tecnologia.': Accedes a nuestra parte de tecnología';
         sendMessage($chatId, $response);
         break;
     case '/noticias':
-        $response = 'Hola! has pulsado el comando de noticias '.$emoticono.', porfavor pulsa para ver la noticias de ese periodico:
-         Ideal '.$emoticono.': /ideal
-         El mundo '.$emoticono.': /elmundo
-         New York Times '.$emoticono.': /newyork
-         EuropaExpress '.$emoticono.': /europapress
-         La Vanguardia '.$emoticono.': /vanguardia
-         El Pais '.$emoticono.': /elpais';
+        $response = 'Hola! has pulsado el comando de noticias '.$periodicoemo.', porfavor pulsa para ver la noticias de ese periodico:
+         Ideal '.$periodicoemo.': /ideal
+         El mundo '.$periodicoemo.': /elmundo
+         New York Times '.$periodicoemo.': /newyork
+         EuropaExpress '.$periodicoemo.': /europapress
+         La Vanguardia '.$periodicoemo.': /vanguardia
+         El Pais '.$periodicoemo.': /elpais';
         sendMessage($chatId, $response);
         break;
     case '/deportes':

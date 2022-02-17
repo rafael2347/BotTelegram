@@ -8,6 +8,7 @@ $update = json_decode($input, TRUE);
 $chatType = $update["message"]["chat"]["id"];
 $chatId = $update['message']['chat']['id'];
 $message = $update['message']['text'];
+$emoticono="U+1F4F0";
 // $reply = $update['message']['reply_to_message']['text'];
 
 switch($message) {
@@ -33,7 +34,7 @@ switch($message) {
         sendMessage($chatId, $response);
         break;
     case '/Noticias':
-        $response = 'Hola! has pulsado el comando de noticias U+1F4F0, porfavor pulsa para ver la noticias de ese periodico:
+        $response = 'Hola! has pulsado el comando de noticias '.$emoticono.', porfavor pulsa para ver la noticias de ese periodico:
          Ideal: /ideal
          El mundo: /elmundo
          New York Times: /newyork

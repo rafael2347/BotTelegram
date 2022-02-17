@@ -17,6 +17,7 @@ $deportes=' ⚽ ';
 $tecnologia='👨‍💻';
 $hola='🙋‍♂️';
 $info='ℹ️';
+$ayuda='🆘';
 // $reply = $update['message']['reply_to_message']['text'];
 
 switch($message) {
@@ -36,7 +37,7 @@ switch($message) {
         $response = '/start: Inicia el bot,
         /hola '.$hola.': Te anima el día,
         /info '.$info.': Te dice quien es,
-        /help: Te ayuda que comandos puedes poner en este bot
+        /help '.$ayuda.': Te ayuda que comandos puedes poner en este bot
         /noticias '.$periodicoemo.': Te enseña todos los periodicos en los que puedes consultar las noticias
         /deportes '.$emoticono_deportes.': Accedes a las noticias dedicadas sobre deportes
         /tecnologia '.$tecnologia.': Accedes a nuestra parte de tecnología';

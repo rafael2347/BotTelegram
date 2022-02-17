@@ -30,7 +30,7 @@ switch($message) {
         sendMessage($chatId, $response);
         break;
     case '/hola':
-        $response = 'Hola! Hoy va a ser tu mejor día';
+        $response = 'Hola! Hoy va a ser tu mejor día, que nadie te lo unda, tu vales mucho';
         sendMessage($chatId, $response);
         break;
     case '/help':

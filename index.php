@@ -8,11 +8,12 @@ $update = json_decode($input, TRUE);
 $chatType = $update["message"]["chat"]["id"];
 $chatId = $update['message']['chat']['id'];
 $message = $update['message']['text'];
-$emoticono="📰";
-$emoticono_deportes='🏅';
-$golf='⛳';
-$moto='🏍️';
-$deportes='⚽';
+$emoticono=" 📰 ";
+$emoticono_deportes=' 🏅 ';
+$golf=' ⛳ ';
+$moto=' 🏍️ ';
+$formula1=' 🏎️ ';
+$deportes=' ⚽ ';
 // $reply = $update['message']['reply_to_message']['text'];
 
 switch($message) {
@@ -51,7 +52,7 @@ switch($message) {
     case '/Deportes':
         $response='Has puesto el comando de Deportes'.$emoticono_deportes.', porfavor pulsa para ver los deportes de ese periodico:
         El Marca'.$deportes.': /marca
-        El AS de Formula 1: /As_formula1
+        El AS de Formula 1'.$formula1.': /As_formula1
         El AS de Motos'.$moto.': /As_motos
         El periodico Sport'.$deportes.': /sport
         El periodico Sport de Golf'.$golf.': /sportgolf';

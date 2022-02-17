@@ -38,9 +38,9 @@ switch($message) {
         /Deportes: Accedes a las noticias dedicadas sobre deportes';
         sendMessage($chatId, $response);
         break;
-    case '/Noticias':
+    case '/noticias':
         $response = 'Hola! has pulsado el comando de noticias '.$emoticono.', porfavor pulsa para ver la noticias de ese periodico:
-         Ideal'.$emoticono.': /ideal
+         Ideal '.$emoticono.': /ideal
          El mundo '.$emoticono.': /elmundo
          New York Times '.$emoticono.': /newyork
          EuropaExpress '.$emoticono.': /europapress

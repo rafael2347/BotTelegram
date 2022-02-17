@@ -50,12 +50,12 @@ switch($message) {
         sendMessage($chatId, $response);
         break;
     case '/Deportes':
-        $response='Has puesto el comando de Deportes'.$emoticono_deportes.', porfavor pulsa para ver los deportes de ese periodico:
-        El Marca'.$deportes.': /marca
-        El AS de Formula 1'.$formula1.': /As_formula1
-        El AS de Motos'.$moto.': /As_motos
-        El periodico Sport'.$deportes.': /sport
-        El periodico Sport de Golf'.$golf.': /sportgolf';
+        $response='Has puesto el comando de Deportes '.$emoticono_deportes.', porfavor pulsa para ver los deportes de ese periodico:
+        El Marca '.$deportes.': /marca
+        El AS de Formula 1 '.$formula1.': /As_formula1
+        El AS de Motos '.$moto.': /As_motos
+        El periodico Sport '.$deportes.': /sport
+        El periodico Sport de Golf '.$golf.': /sportgolf';
 
 
         sendMessage($chatId, $response);

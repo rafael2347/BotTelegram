@@ -14,6 +14,7 @@ $golf=' ⛳ ';
 $moto=' 🏍️ ';
 $formula1=' 🏎️ ';
 $deportes=' ⚽ ';
+$tecnologia='👨‍💻';
 // $reply = $update['message']['reply_to_message']['text'];
 
 switch($message) {
@@ -35,7 +36,8 @@ switch($message) {
         /info: Te dice quien es,
         /help: Te ayuda que comandos puedes poner en este bot
         /noticias: Te enseña todos los periodicos en los que puedes consultar las noticias
-        /deportes: Accedes a las noticias dedicadas sobre deportes';
+        /deportes: Accedes a las noticias dedicadas sobre deportes
+        /tecnologia: Accedes a nuestra parte de tecnología';
         sendMessage($chatId, $response);
         break;
     case '/noticias':
@@ -54,11 +56,21 @@ switch($message) {
         El AS de Formula 1 '.$formula1.': /As_formula1
         El AS de Motos '.$moto.': /As_motos
         El periodico Sport '.$deportes.': /sport
-        El periodico Sport de Golf '.$golf.': /sportgolf';
+        El periodico Sport de Golf '.$golf.': /sportgolf
+        El periodico El pais deportes '.$emoticono_deportes.': /deporteselpais';
 
 
         sendMessage($chatId, $response);
         break;
+
+        case '/tecnologia':
+            $response='Has puesto el comando de Tecnologia '.$tecnologia.', pulsa que tecnologia quieres ver:
+                Tecnologia del país '.$tecnologia .': /tecnologia
+            ';
+    
+    
+            sendMessage($chatId, $response);
+            break;
     case '/elmundo':
         getNews($chatId);
         break;
@@ -91,6 +103,12 @@ switch($message) {
         break;
     case '/elpais':
         Elpais($chatId);
+        break;
+    case '/tecnologia':
+        tecnologia($chatId);
+        break;
+    case '/deporteselpais':
+        elpaisdeportes($chatId);
         break;
     default:
         $response = 'No te he entendido';
@@ -341,6 +359,52 @@ function Elpais ($chatId) {
     $context=stream_context_create(array('http' => array('header' => "Accept: application/xml")));
    
     $url="https://feeds.elpais.com/mrss-s/pages/ep/site/elpais.com/portada";
+
+    $xmlstring= file_get_contents($url, false, $context);
+
+    $xml = simplexml_load_string($xmlstring, "SimpleXMLElement", LIBXML_NOCDATA);
+    $json =json_encode($xml);
+    $array = json_decode($json, TRUE);
+
+    for($i=0; $i<9; $i++){
+        $titulos = $titulos. "\n\n".$array['channel']['item'][$i]['title']."<a href='".$array['channel']['item'][$i]['link']."'>
+ Pincha aquí para más información</a>";
+        
+    }
+
+    sendMessage($chatId, $titulos);
+
+
+}
+
+function tecnologia ($chatId) {
+    include("simple_html_dom.php");
+    $context=stream_context_create(array('http' => array('header' => "Accept: application/xml")));
+   
+    $url="https://feeds.elpais.com/mrss-s/pages/ep/site/elpais.com/section/tecnologia/portada";
+
+    $xmlstring= file_get_contents($url, false, $context);
+
+    $xml = simplexml_load_string($xmlstring, "SimpleXMLElement", LIBXML_NOCDATA);
+    $json =json_encode($xml);
+    $array = json_decode($json, TRUE);
+
+    for($i=0; $i<9; $i++){
+        $titulos = $titulos. "\n\n".$array['channel']['item'][$i]['title']."<a href='".$array['channel']['item'][$i]['link']."'>
+ Pincha aquí para más información</a>";
+        
+    }
+
+    sendMessage($chatId, $titulos);
+
+
+}
+
+function elpaisdeportes ($chatId) {
+    include("simple_html_dom.php");
+    $context=stream_context_create(array('http' => array('header' => "Accept: application/xml")));
+   
+    $url="https://feeds.elpais.com/mrss-s/pages/ep/site/elpais.com/section/deportes/portada";
 
     $xmlstring= file_get_contents($url, false, $context);
 

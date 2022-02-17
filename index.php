@@ -15,6 +15,7 @@ $moto=' 🏍️ ';
 $formula1=' 🏎️ ';
 $deportes=' ⚽ ';
 $tecnologia='👨‍💻';
+$hola='🙋‍♂️';
 // $reply = $update['message']['reply_to_message']['text'];
 
 switch($message) {
@@ -32,7 +33,7 @@ switch($message) {
         break;
     case '/help':
         $response = '/start: Inicia el bot,
-        /hola: Te anima el día,
+        /hola '.$hola.': Te anima el día,
         /info: Te dice quien es,
         /help: Te ayuda que comandos puedes poner en este bot
         /noticias '.$periodicoemo.': Te enseña todos los periodicos en los que puedes consultar las noticias

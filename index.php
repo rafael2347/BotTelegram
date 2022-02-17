@@ -68,7 +68,7 @@ switch($message) {
 
         case '/tecnologia':
             $response='Has pulsado el comando de Tecnologia '.$tecnologia.', pulsa que tecnologia quieres ver:
-            Tecnologia del país '.$tecnologia .': /Tecnologia';
+Tecnologia del país '.$tecnologia .': /Tecnologia';
             sendMessage($chatId, $response);
             break;
     case '/elmundo':

@@ -34,8 +34,8 @@ switch($message) {
         /hola: Te anima el día,
         /info: Te dice quien es,
         /help: Te ayuda que comandos puedes poner en este bot
-        /Noticias: Te enseña todos los periodicos en los que puedes consultar las noticias
-        /Deportes: Accedes a las noticias dedicadas sobre deportes';
+        /noticias: Te enseña todos los periodicos en los que puedes consultar las noticias
+        /deportes: Accedes a las noticias dedicadas sobre deportes';
         sendMessage($chatId, $response);
         break;
     case '/noticias':
@@ -48,7 +48,7 @@ switch($message) {
          El Pais '.$emoticono.': /elpais';
         sendMessage($chatId, $response);
         break;
-    case '/Deportes':
+    case '/deportes':
         $response='Has puesto el comando de Deportes '.$emoticono_deportes.', porfavor pulsa para ver los deportes de ese periodico:
         El Marca '.$deportes.': /marca
         El AS de Formula 1 '.$formula1.': /As_formula1

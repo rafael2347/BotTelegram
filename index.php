@@ -33,7 +33,7 @@ switch($message) {
         sendMessage($chatId, $response);
         break;
     case '/Noticias':
-        $response = 'Hola! has pulsado el comando de noticias, porfavor pulsa para ver la noticias de ese periodico:
+        $response = 'Hola! has pulsado el comando de noticias U+1F4F0, porfavor pulsa para ver la noticias de ese periodico:
          Ideal: /ideal
          El mundo: /elmundo
          New York Times: /newyork

@@ -9,6 +9,10 @@ $chatType = $update["message"]["chat"]["id"];
 $chatId = $update['message']['chat']['id'];
 $message = $update['message']['text'];
 $emoticono="📰";
+$emoticono_deportes='🏅';
+$golf='⛳';
+$moto='🏍️';
+$deportes='⚽';
 // $reply = $update['message']['reply_to_message']['text'];
 
 switch($message) {
@@ -45,12 +49,12 @@ switch($message) {
         sendMessage($chatId, $response);
         break;
     case '/Deportes':
-        $response='Has puesto el comando de Deportes, porfavor pulsa para ver los deportes de ese periodico:
-        El Marca: /marca
+        $response='Has puesto el comando de Deportes'.$emoticono_deportes.', porfavor pulsa para ver los deportes de ese periodico:
+        El Marca'.$deportes.': /marca
         El AS de Formula 1: /As_formula1
-        El AS de Motos: /As_motos
-        El periodico Sport: /sport
-        El periodico Sport de Golf: /sportgolf';
+        El AS de Motos'.$moto.': /As_motos
+        El periodico Sport'.$deportes.': /sport
+        El periodico Sport de Golf'.$golf.': /sportgolf';
 
 
         sendMessage($chatId, $response);

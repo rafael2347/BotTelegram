@@ -76,7 +76,7 @@ Tecnologia del país '.$tecnologia .': /Tecnologia';
             break;
         case '/tiempo':
             $response='Has pulsado el comando de Tiempo '.$tiempo.', pulsa que tiempo quieres ver:
- Noticias el tiempo '.$tiempo .': /eltiempo';
+ Noticias el tiempo Andalucia '.$tiempo .': /eltiempo';
             sendMessage($chatId, $response);
             break;
     case '/elmundo':
@@ -122,7 +122,7 @@ Tecnologia del país '.$tecnologia .': /Tecnologia';
         eltiempo($chatId);
         break;
     default:
-        $response = 'No te he entendido';
+        $response = 'No te he entendido pulsa /help para ver que comandos puedes usar';
         sendMessage($chatId, $response);
         break;
 }

@@ -530,7 +530,7 @@ function eltiempo ($chatId) {
     include("simple_html_dom.php");
     $context=stream_context_create(array('http' => array('header' => "Accept: application/xml")));
    
-    $url="http://www.aemet.es/xml/municipios/localidad_18087.xml";
+    $url="http://www.aemet.es/documentos_d/eltiempo/prediccion/avisos/rss/CAP_AFAE_wah_RSS.xml";
 
     $xmlstring= file_get_contents($url, false, $context);
 

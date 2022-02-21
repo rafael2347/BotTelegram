@@ -539,7 +539,7 @@ function eltiempo ($chatId) {
     $array = json_decode($json, TRUE);
 
     for($i=0; $i<9; $i++){
-        $titulos = $titulos. "\n\n".$array['link']['guid'][$i]['title']."<a href='".$array['channel']['item'][$i]['link']."'>
+        $titulos = $titulos. "\n\n".$array['item']['title'][$i]['description']."<a href='".$array['channel']['item'][$i]['link']."'>
  Pincha aquí para más información</a>";
         
     }

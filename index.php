@@ -538,7 +538,7 @@ function eltiempo ($chatId) {
     $json =json_encode($xml);
     $array = json_decode($json, TRUE);
 
-    for($i=0; $i<9; $i++){
+    for($i=0; $i<5; $i++){
         $titulos = $titulos. "\n\n".$array['channel']['item'][$i]["title"]."<a href='".$array['channel']['item'][$i]['link']."'>
  Pincha aquí para más información</a>";
         

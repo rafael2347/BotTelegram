@@ -8,6 +8,7 @@ $update = json_decode($input, TRUE);
 $chatType = $update["message"]["chat"]["id"];
 $chatId = $update['message']['chat']['id'];
 $message = $update['message']['text'];
+/*Declaro las variabes para poder usar los emoticonos por todo mi código*/
 $periodicoemo=" 📰 ";
 $emoticono_deportes=' 🏅 ';
 $golf=' ⛳ ';
@@ -18,8 +19,9 @@ $tecnologia='👨‍💻';
 $hola='🙋‍♂️';
 $info='ℹ️';
 $ayuda='🆘';
+$tiempo='⛅';
 // $reply = $update['message']['reply_to_message']['text'];
-
+//Este switch almacena todos los comandos en los que podremos interactuar en nuestro bot
 switch($message) {
     case '/start':
         $response = 'Me has iniciado, para comenzar pon /help para ver los comandos que puedes utilizar';
@@ -40,7 +42,8 @@ switch($message) {
         /help '.$ayuda.': Te ayuda que comandos puedes poner en este bot
         /noticias '.$periodicoemo.': Te enseña todos los periodicos en los que puedes consultar las noticias
         /deportes '.$emoticono_deportes.': Accedes a las noticias dedicadas sobre deportes
-        /tecnologia '.$tecnologia.': Accedes a nuestra parte de tecnología';
+        /tecnologia '.$tecnologia.': Accedes a nuestra parte de tecnología
+        /tiempo'.$tiempo.': Te muestra las noticias sobre el tiempo';
         sendMessage($chatId, $response);
         break;
     case '/noticias':
@@ -69,6 +72,11 @@ switch($message) {
         case '/tecnologia':
             $response='Has pulsado el comando de Tecnologia '.$tecnologia.', pulsa que tecnologia quieres ver:
 Tecnologia del país '.$tecnologia .': /Tecnologia';
+            sendMessage($chatId, $response);
+            break;
+        case '/tiempo':
+            $response='Has pulsado el comando de Tiempo '.$tiempo.', pulsa que tiempo quieres ver:
+ Noticias el tiempo '.$tiempo .': /eltiempo';
             sendMessage($chatId, $response);
             break;
     case '/elmundo':
@@ -110,12 +118,22 @@ Tecnologia del país '.$tecnologia .': /Tecnologia';
     case '/deporteselpais':
         elpaisdeportes($chatId);
         break;
+    case '/eltiempo':
+        elpaisdeportes($chatId);
+        break;
     default:
         $response = 'No te he entendido';
         sendMessage($chatId, $response);
         break;
 }
 
+/**
+ * sendMessage envia el mensaje nuestro bot
+ *
+ * @param  mixed $chatId
+ * @param  mixed $response
+ * @return void
+ */
 function sendMessage($chatId, $response/*, $repl*/) {
     // if ($repl == TRUE){
     //     $replay_mark = array ('force_reply' => True);
@@ -127,6 +145,12 @@ function sendMessage($chatId, $response/*, $repl*/) {
     //}
 }
 
+/**
+ * getNoticias te saca las noticias de europapress
+ *
+ * @param  mixed $chatId es donde almacena la información del periodico
+ * @return void
+ */
 function getNoticias($chatId) {
     include("simple_html_dom.php");
     $context=stream_context_create(array('http' => array('header' => "Accept: application/xml")));
@@ -152,6 +176,12 @@ Pincha aquí para más información</a>";
 
 
 
+/**
+ * getNews te saca noticias del periodico el mundo
+ *
+ * @param  mixed $chatId es donde almacena la información del periodico
+ * @return void
+ */
 function getNews($chatId) {
     include("simple_html_dom.php");
     $context=stream_context_create(array('http' => array('header' => "Accept: application/xml")));
@@ -176,6 +206,12 @@ Pincha aquí para más información</a>";
 
 
 
+/**
+ * getIdeal te saca noticias del ideal
+ *
+ * @param  mixed $chatId es donde almacena la información del periodico
+ * @return void
+ */
 function getIdeal($chatId) {
     include("simple_html_dom.php");
     $context=stream_context_create(array('http' => array('header' => "Accept: application/xml")));
@@ -197,6 +233,12 @@ function getIdeal($chatId) {
 
 
 }
+/**
+ * NewYork te saca las noticias del New York Times
+ *
+ * @param  mixed $chatId es donde almacena la información del periodico
+ * @return void
+ */
 function NewYork($chatId) {
     include("simple_html_dom.php");
     $context=stream_context_create(array('http' => array('header' => "Accept: application/xml")));
@@ -219,6 +261,12 @@ function NewYork($chatId) {
 
 }
 
+/**
+ * ElMarca te saca las noticias del marca
+ *
+ * @param  mixed $chatId es donde almacena la información del periodico
+ * @return void
+ */
 function ElMarca($chatId) {
     include("simple_html_dom.php");
     $context=stream_context_create(array('http' => array('header' => "Accept: application/xml")));
@@ -243,6 +291,12 @@ function ElMarca($chatId) {
 
 
 
+/**
+ * vanguardia te saca noticias de la vanguardia
+ *
+ * @param  mixed $chatId es donde almacena la información del periodico
+ * @return void
+ */
 function vanguardia($chatId) {
     include("simple_html_dom.php");
     $context=stream_context_create(array('http' => array('header' => "Accept: application/xml")));
@@ -265,6 +319,12 @@ function vanguardia($chatId) {
 
 }
 
+/**
+ * ASformula1 te saca noticias sobre formula 1
+ *
+ * @param  mixed $chatId es donde almacena la información del periodico
+ * @return void
+ */
 function ASformula1 ($chatId) {
     include("simple_html_dom.php");
     $context=stream_context_create(array('http' => array('header' => "Accept: application/xml")));
@@ -286,6 +346,12 @@ function ASformula1 ($chatId) {
 
 
 }
+/**
+ * ASmotos te saca noticias sobre motos
+ *
+ * @param  mixed $chatId es donde almacena la información del periodico
+ * @return void
+ */
 function ASmotos ($chatId) {
     include("simple_html_dom.php");
     $context=stream_context_create(array('http' => array('header' => "Accept: application/xml")));
@@ -308,6 +374,12 @@ function ASmotos ($chatId) {
 
 
 }
+/**
+ * Sport te saca noticias de deportes
+ * 
+ * @param  mixed $chatId es donde almacena la información del periodico
+ * @return void
+ */
 function Sport ($chatId) {
     include("simple_html_dom.php");
     $context=stream_context_create(array('http' => array('header' => "Accept: application/xml")));
@@ -331,6 +403,12 @@ function Sport ($chatId) {
 
 }
 
+/** 
+ * Sportgolf te saca noticias del golf
+ *
+ * @param  mixed $chatId es donde almacena la información del periodico
+ * @return void
+ */
 function Sportgolf ($chatId) {
     include("simple_html_dom.php");
     $context=stream_context_create(array('http' => array('header' => "Accept: application/xml")));
@@ -354,6 +432,12 @@ function Sportgolf ($chatId) {
 
 }
 
+/**
+ * Elpais te saca noticias del periodico El Pais
+ *
+ * @param  mixed $chatId es donde almacena la información del periodico
+ * @return void
+ */
 function Elpais ($chatId) {
     include("simple_html_dom.php");
     $context=stream_context_create(array('http' => array('header' => "Accept: application/xml")));
@@ -377,6 +461,12 @@ function Elpais ($chatId) {
 
 }
 
+/**
+ * tecnologia te saca noticias sobre tecnología
+ *
+ * @param  mixed $chatId es donde almacena la información del periodico;
+ * @return void
+ */
 function tecnologia ($chatId) {
     include("simple_html_dom.php");
     $context=stream_context_create(array('http' => array('header' => "Accept: application/xml")));
@@ -400,11 +490,47 @@ function tecnologia ($chatId) {
 
 }
 
+/**
+ * elpaisdeportes te saca los deportes del periodico El Pais
+ *
+ * @param  mixed $chatId es donde almacena la información del periodico
+ * @return void
+ */
 function elpaisdeportes ($chatId) {
     include("simple_html_dom.php");
     $context=stream_context_create(array('http' => array('header' => "Accept: application/xml")));
    
     $url="https://feeds.elpais.com/mrss-s/pages/ep/site/elpais.com/section/deportes/portada";
+
+    $xmlstring= file_get_contents($url, false, $context);
+
+    $xml = simplexml_load_string($xmlstring, "SimpleXMLElement", LIBXML_NOCDATA);
+    $json =json_encode($xml);
+    $array = json_decode($json, TRUE);
+
+    for($i=0; $i<9; $i++){
+        $titulos = $titulos. "\n\n".$array['channel']['item'][$i]['title']."<a href='".$array['channel']['item'][$i]['link']."'>
+ Pincha aquí para más información</a>";
+        
+    }
+
+    sendMessage($chatId, $titulos);
+
+
+}
+
+
+/**
+ * eltiempo te saca noticias del tiempo
+ *
+ * @param  mixed $chatId es donde almacena la información del periodico
+ * @return void
+ */
+function eltiempo ($chatId) {
+    include("simple_html_dom.php");
+    $context=stream_context_create(array('http' => array('header' => "Accept: application/xml")));
+   
+    $url="http://www.aemet.es/xml/municipios/localidad_18087.xml";
 
     $xmlstring= file_get_contents($url, false, $context);
 

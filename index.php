@@ -43,7 +43,7 @@ switch($message) {
         /noticias '.$periodicoemo.': Te enseña todos los periodicos en los que puedes consultar las noticias
         /deportes '.$emoticono_deportes.': Accedes a las noticias dedicadas sobre deportes
         /tecnologia '.$tecnologia.': Accedes a nuestra parte de tecnología
-        /tiempo'.$tiempo.': Te muestra las noticias sobre el tiempo';
+        /tiempo '.$tiempo.': Te muestra las noticias sobre el tiempo';
         sendMessage($chatId, $response);
         break;
     case '/noticias':

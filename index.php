@@ -119,7 +119,7 @@ Tecnologia del país '.$tecnologia .': /Tecnologia';
         elpaisdeportes($chatId);
         break;
     case '/eltiempo':
-        elpaisdeportes($chatId);
+        eltiempo($chatId);
         break;
     default:
         $response = 'No te he entendido';
